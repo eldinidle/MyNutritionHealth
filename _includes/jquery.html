@@ -1,9 +1,24 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
   $( function() {
-    $( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+15D" });
+    $( "#datepicker" ).datepicker({
+      minDate: 0,
+      maxDate: "+15D",
+      onSelect: function(dateText, inst) {
+         var dateAsString = dateText;
+         var dateAsObject = $(this).datepicker( 'getDate' );
+         var today = new Date();
+         var daydif = Math.ceil((dateAsObject - today)/(1000*60*60*24));
+         document.getElementById("studyValue").innerHTML = daydif;
+      } });
   } );
   </script>
-  <p><div id="datepicker">
+  <p align="center" > Please select the date of your upcoming appointment with your dietician. </p>
+  <div align="center" id="datepicker">
+  </div>
+  <p align="center" > Remember the number below, then proceed to the next question.</p>
+  <br>
+  <h1 id="studyValue" align="center"></h1>

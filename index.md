@@ -4,8 +4,5 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 #layout: home
 ---
-__MyNutritionHealth__
-
-Thank you for your interest in participating in this study, please select an appointment date.
 
 {% include jquery.html %}
